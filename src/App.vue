@@ -1,17 +1,19 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="col-12">
+    <LeafletMap/>
+    <ResultList/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import LeafletMap from './components/LeafletMap.vue'
+import ResultList from './components/ResultList.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    LeafletMap,
+    ResultList
   }
 }
 </script>
