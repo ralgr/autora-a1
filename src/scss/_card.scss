@@ -1,0 +1,10 @@
+  .cardFocus {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(3, 2, 3, 0.8);
+    z-index: 99999 !important;
+    padding: 20vh 43.45vw;
+  }

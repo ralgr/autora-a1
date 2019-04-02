@@ -33,7 +33,7 @@ export default {
 
   methods: {
     signUpSubmit(user) {
-      console.log('Trying to create account for ' + user.email + 'with the pass of ' + user.password);
+      console.log('Trying to create account for ' + user.email + ' with the pass of ' + user.password);
       this.errors = [];
       fireB.auth().createUserWithEmailAndPassword(user.email, user.password)
         .catch(error => {

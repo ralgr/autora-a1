@@ -93,6 +93,8 @@ export default {
         AuthStore.setAuthAction(user);
         this.$router.push('/')
         console.log(user.email + ' is currently logged in');
+        console.log(this.user.email + ' is currently in the user variable');
+        console.log(AuthStore.state.user.email + ' is currently in the user state');
         // ...
       } else {
         // User is signed out.

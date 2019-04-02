@@ -5,11 +5,11 @@
       <div class="col-12">
         <div class="row">
 
-          <div class="col-12">
+          <div class="col-7">
 
             <form @submit.prevent="exeSearch">
               <div class="form-group">
-                <label for="groupCont">Group Context</label>
+                <label for="groupCont"><strong>Group Context</strong></label>
                 <select id="groupCont"
                         class="groupCont"
                         name="groupCont"
@@ -21,7 +21,7 @@
               </div>
 
               <div class="form-group">
-                <label for="stopTypes">Stop Type</label>
+                <label for="stopTypes"><strong>Stop Type</strong></label>
                 <select id="stopTypes"
                         class="stopTypes"
                         name="stopTypes"
@@ -39,6 +39,13 @@
           </div>
 
         </div>
+
+        <div class="row">
+
+            <ResultList :locations="locations"
+                        :errors="errors"/>
+        </div>
+
       </div>
 
     </div>
@@ -48,9 +55,14 @@
 <script>
 import axios from 'axios'
 import { AUTORA_KEY } from '../config/AutoraKey'
+import ResultList from './ResultList'
 
 export default {
   name: 'SearchBar',
+
+  components: {
+    ResultList
+  },
 
   data() {
     return {
@@ -73,8 +85,9 @@ export default {
       ],
       selectedCont: null,
       selectedType: null,
-      locationInput: null,
-      key: AUTORA_KEY
+      locations: [],
+      key: AUTORA_KEY,
+      errors: null
     }
   },
 
@@ -85,12 +98,18 @@ export default {
       var url = `https://api.autoura.com/api/stops/search?group_context=${this.selectedCont}&stop_types=${this.selectedType}`
       autora.get(url)
         .then(r => {
-          console.log(r.data.response);
-          this.$emit('on-search', r.data.response)
+          this.errors = null;
+          let response = r.data.response.map(response => {
+            response.iconSize = null;
+            return response
+          })
+          this.locations = response
+          this.$emit('show-locations', this.locations)
         }).catch(e => {
+          this.errors = null;
           let errMsg = {500: 'Stop type is required at the minimum.'};
           let error = errMsg[e.response.status];
-          this.$emit('on-search-error', error)
+          this.errors = error
         });
     }
   }
@@ -112,11 +131,4 @@ export default {
     border-width: 1px;
   }
 
-  .set1 {
-    background-color: red;
-  }
-
-  .set2 {
-    background-color: royalblue;
-  }
 </style>

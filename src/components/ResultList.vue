@@ -18,7 +18,7 @@
     <!-- Highlight cards -->
     <div class="cardFocus"
          v-if="clicked">
-      <div class="card override"
+      <div class="card"
            style="width: 18rem;">
            <!-- Card image -->
            <cld-image :cloudName="selectedLocation.picture.cloudinary_cloud_name"
@@ -34,6 +34,11 @@
         <div class="card-body">
           <h5 class="card-title">{{ selectedLocation.name }}</h5>
           <p class="card-text">{{ selectedLocation.summary }}</p>
+          <h6 class="card-title">Accessibility Information</h6>
+          <p class="card-text">{{ wheelchair }}</p>
+          <h6 class="card-title">Location Details</h6>
+          <p class="card-text">{{ selectedLocation.location.address }}</p>
+          <p class="card-text">{{ selectedLocation.location.country }}</p>
           <a href="#"
              class="btn btn-primary"
              @click="closeCard">Close</a>
@@ -86,6 +91,9 @@ export default {
   computed: {
     long() {
       return this.locations.length >= 10 ? true : false
+    },
+    wheelchair() {
+      return this.selectedLocation.accessibility.wheelchair ? 'Wheelchair access available.' : 'No wheelchair access / Undefined.'
     }
   }
 }
@@ -104,16 +112,5 @@ export default {
       color: white;
       cursor: pointer;;
     }
-  }
-
-  .cardFocus {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    background: rgba(3, 2, 3, 0.8);
-    z-index: 9999 !important;
-    padding: 34vh 44vw;
   }
 </style>

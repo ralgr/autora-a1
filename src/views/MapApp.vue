@@ -4,18 +4,16 @@
 
       <div class="row">
         <div class="col-12 title-vis-override">
-          <h1 class="display-5">Description Map</h1>
+          <h1 class="display-5">Information Map</h1>
         </div>
       </div>
       <div class="row">
-        <div class="col-12 padding visual-override">
-          <SearchBar @on-search="showResults"
-                     @on-search-error="showError"/>
-          <ResultList :locations="locations"
-                      :errors="mapErr"/>
+        <div class="col-11 padding visual-override">
+          <SearchBar/>
         </div>
-        <div class="col-6">
-          <LeafletMap :locations="locations"/>
+        <div class="col-1">
+          <LeafletMap :locations="locations"
+                      :hovered="hovered"/>
         </div>
       </div>
 
@@ -42,7 +40,8 @@ export default {
       groupContext: null,
       stopType: null,
       locations: [],
-      mapErr: null
+      mapErr: null,
+      hovered: null
     }
   },
 
@@ -54,6 +53,9 @@ export default {
     showError(errors) {
       this.mapErr = null
       this.mapErr = errors
+    },
+    hoveredStop(index) {
+      this.hovered = index
     }
   }
 }
@@ -64,16 +66,16 @@ export default {
     padding: 1em;
   }
   .visual-override {
-    z-index: 9998 !important;
+    z-index: 1 !important;
     position: fixed;
     left: 0px;
     top: 10em;
-    width: 13%;
+    width: 22em;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
   }
   .visual-override:hover {
-    background: rgba(22, 23, 22, 0.1);
+    background: rgba(22, 23, 22, 0.3);
     transition: all 0.2s ease-in-out;
   }
   .title-vis-override {
