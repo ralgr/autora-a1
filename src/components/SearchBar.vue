@@ -43,7 +43,9 @@
         <div class="row">
 
             <ResultList :locations="locations"
-                        :errors="errors"/>
+                        :errors="errors"
+                        @hovered-stop="hoveredStop"
+                        @unhovered-stop="unhoveredStop"/>
         </div>
 
       </div>
@@ -87,7 +89,11 @@ export default {
       selectedType: null,
       locations: [],
       key: AUTORA_KEY,
-      errors: null
+      errors: null,
+      iconSize: [[50, 50], [100, 100]],
+      zIndex: [0, 9999],
+      normal: 0,
+      hovered: 1
     }
   },
 
@@ -100,17 +106,26 @@ export default {
         .then(r => {
           this.errors = null;
           let response = r.data.response.map(response => {
-            response.iconSize = null;
-            return response
+            response.iconSize = this.iconSize[this.normal];
+            response.zIndex = this.zIndex[this.normal];
+            return response;
           })
-          this.locations = response
-          this.$emit('show-locations', this.locations)
+          this.locations = response;
+          this.$emit('show-locations', this.locations);
         }).catch(e => {
           this.errors = null;
           let errMsg = {500: 'Stop type is required at the minimum.'};
           let error = errMsg[e.response.status];
           this.errors = error
         });
+    },
+    hoveredStop(index) {
+      this.locations[index].iconSize = this.iconSize[this.hovered];
+      this.locations[index].zIndex = this.zIndex[this.hovered];
+    },
+    unhoveredStop(index) {
+      this.locations[index].iconSize = this.iconSize[this.normal];
+      this.locations[index].zIndex = this.zIndex[this.normal];
     }
   }
 }

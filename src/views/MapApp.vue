@@ -3,17 +3,13 @@
     <div class="col-12">
 
       <div class="row">
-        <div class="col-12 title-vis-override">
-          <h1 class="display-5">Information Map</h1>
-        </div>
-      </div>
-      <div class="row">
         <div class="col-11 padding visual-override">
-          <SearchBar/>
+          <h1 class="display-5">Information Map</h1>
+          <SearchBar @show-locations="showResults"/>
         </div>
         <div class="col-1">
-          <LeafletMap :locations="locations"
-                      :hovered="hovered"/>
+          <LeafletMap :locations="locations"/>
+
         </div>
       </div>
 
@@ -23,7 +19,6 @@
 
 <script>
 import LeafletMap from '../components/LeafletMap'
-import ResultList from '../components/ResultList'
 import SearchBar from '../components/SearchBar'
 
 export default {
@@ -31,7 +26,6 @@ export default {
 
   components: {
     LeafletMap,
-    ResultList,
     SearchBar
   },
 
@@ -49,10 +43,6 @@ export default {
     showResults(locations) {
       this.mapErr = null
       this.locations = locations
-    },
-    showError(errors) {
-      this.mapErr = null
-      this.mapErr = errors
     },
     hoveredStop(index) {
       this.hovered = index

@@ -6,19 +6,13 @@
       </div>
     </div>
 
-    <div v-if="!loading" class="col-12">
+    <div v-if="!loading" class="col-5 mx-auto">
 
       <div class="row">
         <div class="col-12 visual-override">
 
           <!-- [navigation links] -->
           <ul class="nav">
-            <li class="nav-item"
-                v-if="user">
-              <router-link class="nav-link" :to="'/'">
-                Home
-              </router-link>
-            </li>
             <li class="nav-item"
                 v-if="!user">
               <router-link class="nav-link" :to="'/sign-up'">
@@ -39,17 +33,28 @@
                 </span>
               </router-link>
             </li>
+            <li class="nav-item"
+                v-if="user">
+              <button type="button"
+                      name="savedLocations"
+                      class="btn btn-outline-info"
+                      @click="openSaves">Saved locations</button>
+            </li>
           </ul>
-
-        </div> <!-- [header column] end -->
+        </div> <!-- [header1 column] end -->
       </div> <!-- [header row] end -->
-
-      <div class="row">
-        <div class="col-12">
-          <router-view/> <!--  The view window. The area in which views are shown. -->
-        </div>
-      </div> <!-- [content row] end -->
     </div> <!-- [#container] end -->
+
+    <div class="row"
+         v-if="!loading">
+      <div class="col-12">
+        <router-view/> <!--  The view window. The area in which views are shown. -->
+      </div>
+    </div> <!-- [content row] end -->
+
+    <div class="saveContainer">
+      <SaveList :saves="saved"/>
+    </div>
 
     </div>
 </template>
@@ -57,18 +62,22 @@
 <script>
 import { fireB } from './config/Firebase'
 import AuthStore from './stores/AuthStore'
+import SaveList from './components/SaveList'
+import { db,} from './config/Firebase'
+import EventBus from './event_bus/EventBus'
 
 export default {
   name: 'app',
 
   components: {
-
+    SaveList
   },
 
   data() {
     return{
       user: null,
-      loading: true
+      loading: true,
+      saved: []
     }
   },
 
@@ -77,9 +86,23 @@ export default {
       console.log('A user has signed out');
       fireB.auth().signOut();
       this.user = null;
+      EventBus.$emit('close-down', this.user);
       AuthStore.clearAuthAction();
       console.log('user now contains: ' + this.user);
       this.$router.push('/sign-in');
+    },
+    openSaves() {
+      console.log('Triggered open saves');
+      db.collection('saved-stops')
+        .onSnapshot(snap => {
+          this.saved = [];
+          snap.forEach(doc => {
+            if (doc.data().user === AuthStore.state.user.email) {
+              this.saved.push(doc);
+            }
+          })
+        });
+      EventBus.$emit('open-saves', this.saved)
     }
   },
 
@@ -118,10 +141,10 @@ export default {
     z-index: 9998 !important;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    padding: 0.5em;
   }
   .visual-override:hover {
     background: white;
-    box-shadow: 4px 1px 5px rgba(22, 23, 22, 0.3);
     transition: all 0.2s ease-in-out;
   }
 </style>

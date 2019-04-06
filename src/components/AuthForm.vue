@@ -18,10 +18,6 @@
                aria-describedby="emailHelp"
                placeholder="Enter email"
                v-model="email">
-        <small id="emailHelp"
-               class="form-text text-muted">
-               We'll never share your email with anyone else. However, we can be conviced ££.
-        </small>
       </div>
       <div class="form-group"
            v-if="confEmailOn">
