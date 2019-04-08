@@ -19,8 +19,8 @@ support for different devices? What tech stack did you use? What deployment meth
 My workflow is based on the waterfall method where every step of the waterfall is a feature. I complete a feature then move on 
 to the next and so forth. The difference is, that my workflow repeats for however may times it takes to achieve a satisfactory 
 outcome. In that sense, it would be more like a fountain. The first iteration would be to lay the groundwork for each feature I 
-plan to implement, making changes along the way until the foundation is completely sturdy. This could be called the **groundwork 
-iteration**, as I am laying down a sturdy foundation that, has all the necessary functions I envisioned but 
+plan to implement, making changes along the way until the foundation is completely sturdy. This could be called the groundwork 
+iteration, as I am laying down a sturdy foundation that, has all the necessary functions I envisioned but 
 aesthetically would look far from ideal but embodies what it will become.The next iteration would then be to flesh out each of 
 the features until it reaches a presentable degree but not necessarily the ideal. This is where a feature is given an outward 
 appearance that attempts to reach the ideal and also to iron out the internal codes for presentability and ease of use for a 
@@ -30,3 +30,16 @@ for deployment.
 The project made use of GitHub for version control, Vue.js for creating the app, and Bootstrap CSS framework for its appearance.
 As per the Vue.js website, Vue does not support IE8 and lower because of its use of ECMAScript 5 features that are un-shimmable
 in IE8 and below. otherwise, it supports every ECMAScript 5 compliant browsers. 
+
+# Implementation
+
+You will explore:
+
+    Deployment to GitHubPages/Firebase
+    Real Time Databases (e.g. Firebase), and how data is structured
+    Design patterns
+
+should be considered
+Mapping and geolocation, what concepts did you use?
+Progressive web applications (Advanced)
+Unit Testing (Advanced)
