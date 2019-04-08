@@ -36,6 +36,13 @@ There are currently six stop types to choose from.
 * Tours
 
 ## Project setup
+
+### Clone project
+
+```
+https://github.com/ralgr/autora-a1.git
+```
+### Install requirements 
 ```
 npm install
 ```
