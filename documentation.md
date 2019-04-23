@@ -12,7 +12,9 @@ be more inclusive.
 # Methods
 
 ## General Information
-There are 2 versions of the app created for this project. Version 1 made use of GitHub for version control, Vue.js for creating the app, and Bootstrap CSS framework for the appearance. Both apps were created using the Vue CLI-3, however, Version 1 used the default creation options, meaning there is no PWA support and VueX. It did, however, made use of the Vue Router. Version 2, in addition to making use of the Vue Router, is created with PWA support for offline functionality and VueX enabled for the app to have a centralized store to make it easier for components to use data. As per the Vue.js website, Vue does not support IE8 and lower because of its use of ECMAScript 5 features that are un-shimmable in IE8 and below. Otherwise, it supports every ECMAScript 5 compliant browsers. To ensure the ideal appearance is achieved on different devices, Version 1 made use of Bootstrap classes to make each page adhere to Responsive Web Design. Version 2 made use of Vuetify to achieve this goal and made it easier to implement overall than Bootstrap.
+There are 2 versions of the app created for this project. The workflows for both instances are based on the waterfall method where every step of the waterfall is a feature. Each feature is worked upon until it reaches completion before moving to the next while, fixing compatibility issues in between. 
+
+Version 1 made use of GitHub for version control, Vue.js for creating the app, and Bootstrap CSS framework for the appearance. Both apps were created using the Vue CLI-3, however, Version 1 used the default creation options, meaning there is no PWA support and VueX. It did, however, made use of the Vue Router. Version 2, in addition to making use of the Vue Router, is created with PWA support for offline functionality and VueX enabled for the app to have a centralized store to make it easier for components to use data. As per the Vue.js website, Vue does not support IE8 and lower because of its use of ECMAScript 5 features that are un-shimmable in IE8 and below. Otherwise, it supports every ECMAScript 5 compliant browsers. To ensure the ideal appearance is achieved on different devices, Version 1 made use of Bootstrap classes to make each page adhere to Responsive Web Design. Version 2 made use of Vuetify to achieve this goal and made it easier to implement overall than Bootstrap.
 
 For the app itself, Axios was used to consume the Autoura API and make use of the data to create a result list and to build map markers. The map markers are part of the map component for both versions which, used Leaflet. The result list as mentioned above, is available on both versions and clicking a result will open a card that contains more data on the clicked result. The card for the said result also displayed an image of the location. The source for this image came with every data from the Autoura API and displaying this image required Cloudinary-vue to be used.
 
@@ -27,15 +29,15 @@ Version 2 made use of:
 * VueX - For a centralized store.
 * Vuetify - For the appearance of components and their responsiveness for multiple devices.
 
-Additionally, both versions made use of:
+Both versions made use of:
+* GitHub - For version control.
+* Vue and Vue CLI version 3.x - To create the app with the option for VueX and PWA support.
 * Vue Router - To mimic multi-page applications and show different component "Views" depending on the route.
 * Axios - For consuming the Autoura API
 * Cloudinary-vue - For the images that come with the data inside the Autoura database.
 * Firebase - For authentication and storage of data.
 * Leaflet - For the map application
 
-
-The workflows for both instances are based on the waterfall method where every step of the waterfall is a feature. Each feature is worked upon until it reaches completion before moving to the next while, fixing compatibility issues in between.
 
 ## Version 1
 
