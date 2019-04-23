@@ -13,6 +13,8 @@ be more inclusive.
 
 ## [Version 1](https://github.com/ralgr/autora-a1)
 
+## [Version 2](https://github.com/ralgr/a-better-autoura)
+
 
 ## General Information
 There are 2 versions of the app created for this project. The workflows for both instances are based on the waterfall method where every step of the waterfall is a feature. Each feature is worked upon until it reaches completion before moving to the next while, fixing compatibility issues in between. 
