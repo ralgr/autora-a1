@@ -9,6 +9,10 @@ have them easily save the location for future use. It is important that the UI i
 make it overly complex for the sake of the older generation and to those that are technologically challenged to, in a sense, 
 be more inclusive.
 
+# Wireframe for Version 1
+
+![Wireframe](https://github.com/ralgr/autora-a1/blob/master/dsasdawearqwasda.PNG)
+
 # Methods
 
 ## [Version 1](https://github.com/ralgr/autora-a1)
