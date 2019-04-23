@@ -11,13 +11,22 @@ be more inclusive.
 
 # Methods
 
+## General Information
+There are 2 versions of the app created for this project. Version 1 made use of GitHub for version control, Vue.js for creating the app, and Bootstrap CSS framework for the appearance. Both apps were created using the Vue CLI-3, however, Version 1 used the default creation options, meaning there is no PWA support and VueX. It did, however, made use of the Vue Router. Version 2, in addition to making use of the Vue Router, is created with PWA support and VueX enabled and the appearance is made using Vuetify plugin.
+Additionally, both versions made use of:
+* Axios - For consuming the Autoura API
+* Cloudinary-vue - For the images that come with the data inside the Autoura database.
+* Firebase - For authentication and storage of data.
+* Leaflet - For the map application
+
+The workflows for both instances are based on the waterfall method where every step of the waterfall is a feature. Each feature is worked upon until it reaches completion before moving to the next while, fixing compatibility issues in between.
+
 ## Version 1
-I have created 2 versions of this app. Version 1 made use of GitHub for version control, Vue.js for creating the app, and Bootstrap CSS framework for the appearance. 
+
+Version 1 has three Vue components for the router to show as "Views". These are the Sign-in, Sign-up, and the MapApp components. Both the Sign-in and Sign-up components made use of a single component for the form part which, is modified depending on where it is placed. The ac
+The first iteration would be to lay the groundwork for each feature to be implemented, making changes along the way until the foundation is completely set with placeholders for every feature. This iteration is where the app has all the necessary functions I envisioned but aesthetically would look far from ideal but embodies what it will become. The next iteration would then be to flesh out each of the features until it reaches a presentable degree but not necessarily the ideal. This is where a feature is given an outward appearance that attempts to reach the ideal and to iron out the internal codes for presentability and ease of use for a third-party. This is also where the use of GitHub for version control showed most of its value. It allowed for plenty of experimentation on each feature because of the time saved from not doing and redoing codes. Once that is done, the subsequent iterations will be to add to the app until it reaches the said ideal and is ready for deployment.
 
 Version 2 made use of Vuetify instead of Bootstrap for easier optimization on mobile. Additionally, Version 2 made use of VueX for the app to have a centralized store to make it easier for components to use data. this instance is also a PWA which uses the built-in Workbox plugin when creating an app using the Vue CLI-3 and turning on the PWA support.
-
-As per the Vue.js website, Vue does not support IE8 and lower because of its use of ECMAScript 5 features that are un-shimmable
-in IE8 and below. otherwise, it supports every ECMAScript 5 compliant browsers. 
 
 # Implementation
 
