@@ -1,6 +1,6 @@
 # Background
 
-I wanted an interactive map that is so simple, anyone can use it. The reason for this is that, most of the older 
+I wanted an interactive map that is simple enough that anyone will be able to use it. The reason for this is that, most of the older 
 generation has difficulty in using map applications and would require assistance. It would also be a good starting 
 point for young people to start learning about map applications if they are so inclined. I wanted it to be like google 
 maps where one can easily view the important bits of information provided by a database, but stripped of most features, 
@@ -11,13 +11,13 @@ be more inclusive.
 
 # Methods
 
-The project made use of GitHub for version control, Vue.js for creating the app, and Bootstrap CSS framework for its appearance.
+## Version 1
+I have created 2 versions of this app. Version 1 made use of GitHub for version control, Vue.js for creating the app, and Bootstrap CSS framework for the appearance. 
+
+Version 2 made use of Vuetify instead of Bootstrap for easier optimization on mobile. Additionally, Version 2 made use of VueX for the app to have a centralized store to make it easier for components to use data. this instance is also a PWA which uses the built-in Workbox plugin when creating an app using the Vue CLI-3 and turning on the PWA support.
+
 As per the Vue.js website, Vue does not support IE8 and lower because of its use of ECMAScript 5 features that are un-shimmable
 in IE8 and below. otherwise, it supports every ECMAScript 5 compliant browsers. 
-
-My workflow is based on the waterfall method where every step of the waterfall is a feature. I complete a feature then move on 
-to the next and so forth. Them it repeats for however may times it takes to achieve a satisfactory outcome. The first iteration would be to lay the groundwork for each feature I plan to implement, making changes along the way until the foundation is completely set with placeholders for every feature. This iteration is where the app has all the necessary functions I envisioned but aesthetically would look far from ideal but embodies what it will become. The next iteration would then be to flesh out each of the features until it reaches a presentable degree but not necessarily the ideal. This is where a feature is given an outward appearance that attempts to reach the ideal and to iron out the internal codes for presentability and ease of use for a third-party. This is also where the use of GitHub for version control showed most of its value. It allowed for plenty of experimentation on each feature because of the time saved from not doing and redoing codes. Once that is done, the subsequent iterations will be to add to the app until it reaches the said ideal and is ready for deployment.
-
 
 # Implementation
 
